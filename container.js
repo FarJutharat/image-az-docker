@@ -1,9 +1,11 @@
 const http = require('http')
-const port = 8888
-http.createServer((req, res) => {
+const port = 80
+const server = http.createServer((request, response) => {
   // say hello world to any route.
-  res.write('Hello World !')
-  res.end()
-}).listen(port, function() {
-  console.log(`Server listening on port ${port}`)
+  response.writeHead(200, {'Content-Type': 'text/plain'})
+  response.write('  foo GUY!! ')
+  response.end()
 })
+
+server.listen(port)
+console.log(`Server running at http://localhost: ${port}`)

@@ -1,6 +1,6 @@
-FROM node:10.0.0-alpine
-WORKDIR ./work
-COPY ./package.json ./package.json
-RUN npm install
-COPY . .
-ENTRYPOINT [ "node", "container.js" ]
+FROM node:9-alpine
+
+COPY . /src
+RUN cd /src && npm install
+EXPOSE 80
+CMD ["node", "/src/container.js"]
